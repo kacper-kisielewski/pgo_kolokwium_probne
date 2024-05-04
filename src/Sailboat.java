@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Sailboat {
-    private String name;
-    private int capacity;
-    private double dailyRate;
-    private ArrayList<Rental> rentals = new ArrayList<>();
+    private final String name;
+    private final int capacity;
+    private final double dailyRate;
+    private final ArrayList<Rental> rentals = new ArrayList<>();
 
     public Sailboat(String name, int capacity, double dailyRate) throws IllegalArgumentException {
         if (name.isEmpty()) {

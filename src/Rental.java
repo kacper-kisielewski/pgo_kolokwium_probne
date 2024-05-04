@@ -1,18 +1,9 @@
 import java.util.Date;
 
 public class Rental {
-    private Date date;
-    private String name;
-
-    public Date getDate() {
-        return date;
-    }
-
-    private int numberOfPeople;
-
-    private Date getCurrentDate() {
-        return new Date(System.currentTimeMillis());
-    }
+    private final Date date;
+    private final String name;
+    private final int numberOfPeople;
 
     public Rental(Date date, String name, int numberOfPeople) throws IllegalArgumentException {
         if (date.before(getCurrentDate())) {
@@ -22,5 +13,13 @@ public class Rental {
             this.name = name;
             this.numberOfPeople = numberOfPeople;
         }
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    private Date getCurrentDate() {
+        return new Date(System.currentTimeMillis());
     }
 }

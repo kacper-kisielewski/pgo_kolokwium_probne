@@ -4,9 +4,8 @@ import java.util.Date;
 public class Harbor {
     private static final int maxCapacity = 20;
 
-    private String name;
-    private String address;
-    private ArrayList<Sailboat> sailboats = new ArrayList<>();
+    private final String name;
+    private final ArrayList<Sailboat> sailboats = new ArrayList<>();
 
     public Harbor(String name, String address) {
         this.name = name;
