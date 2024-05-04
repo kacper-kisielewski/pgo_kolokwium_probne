@@ -6,6 +6,7 @@ public class Harbor {
 
     private final String name;
     private final ArrayList<Sailboat> sailboats = new ArrayList<>();
+    private String address;
 
     public Harbor(String name, String address) {
         this.name = name;
