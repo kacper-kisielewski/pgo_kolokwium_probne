@@ -32,11 +32,11 @@ public class Harbor {
     }
 
     public Sailboat rentSailboat(Date date, String name, int numberOfPeople) throws IllegalArgumentException {
-        for (Sailboat s : this.sailboats) {
-            if (s.getCapacity() >= numberOfPeople) {
-                if (isBoatAvailable(s, date)) {
-                    this.rentals.add(new Rental(date, name, numberOfPeople, s));
-                    return s;
+        for (Sailboat sailboat : this.sailboats) {
+            if (sailboat.getCapacity() >= numberOfPeople) {
+                if (isBoatAvailable(sailboat, date)) {
+                    this.rentals.add(new Rental(date, name, numberOfPeople, sailboat));
+                    return sailboat;
                 }
             }
         }
@@ -44,6 +44,11 @@ public class Harbor {
     }
 
     public double calculateIncome() {
-        return this.rentals.stream().mapToDouble(r -> r.getSailboat().getDailyRate()).sum();
+        double income = 0;
+        for (Rental rental : this.rentals) {
+            income += rental.getSailboat().getDailyRate();
+        }
+        return income;
+//        return this.rentals.stream().mapToDouble(r -> r.getSailboat().getDailyRate()).sum();
     }
 }
