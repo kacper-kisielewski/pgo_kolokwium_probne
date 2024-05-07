@@ -1,11 +1,7 @@
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Sailboat {
     private final String name;
     private final int capacity;
     private final double dailyRate;
-    private final ArrayList<Rental> rentals = new ArrayList<>();
 
     public Sailboat(String name, int capacity, double dailyRate) throws IllegalArgumentException {
         if (name.isEmpty()) {
@@ -25,18 +21,7 @@ public class Sailboat {
         return capacity;
     }
 
-    public boolean isAvailable(Date date) {
-        for (Rental rental : rentals) {
-            if (rental.getDate().equals(date)) return false;
-        }
-        return true;
-    }
-
-    public void rent(Rental rental) {
-        this.rentals.add(rental);
-    }
-
-    public double getRentalsTotal() {
-        return this.rentals.size() * this.dailyRate;
+    public double getDailyRate() {
+        return dailyRate;
     }
 }

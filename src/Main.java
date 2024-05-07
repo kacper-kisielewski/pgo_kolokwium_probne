@@ -24,7 +24,11 @@ public class Main {
         Sailboat boat4 = h1.rentSailboat(new Date(2020, 1, 1), "Anne Smith", 3);
 
         //This line will cause an exception - because there are no free boats at this date
-//        Sailboat boat5=h1.rentSailboat(new Date(2020, 1, 1), "M", 4);
+        try {
+            Sailboat boat5 = h1.rentSailboat(new Date(2020, 1, 1), "M", 4);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
 
         //5. Get the total income based on all the rentals in the system
         double income = h1.calculateIncome();
